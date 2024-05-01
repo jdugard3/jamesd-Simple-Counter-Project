@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Proptypes from 'prop-types'
 import SimpleCounter from "./SimpleCounter";
 import calculateSeconds from "../lib/time";
 
 
 const Home = (props) => {
+	
+	useEffect(() => {
+		if (props.counter === 5) {
+		  alert("You reached 5 seconds in the counter!!!!");
+		}
+	  }, [props.counter]);
 	
 	return (
 		<>
@@ -27,6 +33,7 @@ Home.Proptypes = {
     hundredsDigit: Proptypes.number,
     tensDigit: Proptypes.number, 
     onesDigit: Proptypes.number,
-}
+	counter: Proptypes.number.isRequired,
+};
 
 export default Home;
